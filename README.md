@@ -4,21 +4,21 @@ A Java actor library for parallel execution. Modernize common concurrency patter
 
 JavaActors is built around three core interfaces:
 
-* Message is a message sent between actors. Message is a container for three (optional) values and some behavior:
+* **Message** is a message sent between actors. Message is a container for three (optional) values and some behavior:
   * source is the sending actor.
   * subject is a string defining the meaning of the message (also known as a command).
   * data is any parameter data for the message; often a map, list, or array. Parameters can be data to process and/or other actors to interact with.
   * subjectMatches() checks to see if the message subject matches a string or regular expression.
 
-  The default message class for the JavaActors package is DefaultMessage.
-* ActorManager is a manager of actors. It is responsible for allocating threads (and thus processors) to actors to process messages. ActorManager has the following key behaviors or characteristics:
+  The default message class for the JavaActors package is *DefaultMessage*.
+* **ActorManager** is a manager of actors. It is responsible for allocating threads (and thus processors) to actors to process messages. ActorManager has the following key behaviors or characteristics:
   * createActor() creates an actor and associates it with this manager.
   * startActor() starts an actor.
   * detachActor() stops an actor and disassociates it from this manager.
   * send()/broadcast() sends a message to an actor, a set of actors, any actor for a category, or all actors.
 
-  In most programs, there is a single ActorManager, although multiple are allowed if you want to manage multiple thread and/or actor pools. The default implementation of this interface is DefaultActorManager.
-* Actor is a unit of execution that processes messages one at a time. Actors have the following key behaviors or characteristics:
+  In most programs, there is a single ActorManager, although multiple are allowed if you want to manage multiple thread and/or actor pools. The default implementation of this interface is *DefaultActorManager*.
+* **Actor** is a unit of execution that processes messages one at a time. Actors have the following key behaviors or characteristics:
   * Each actor has a name, which must be unique per ActorManager.
   * Each actor belongs to a category; categories are a means to send messages to one member of a group of actors. An actor can belong to only one category at a time.
   * receive() is called whenever the ActorManager can provide a thread to execute the actor on. It is called only when a message for the actor exists. To be most effective, an actor should process messages quickly and not enter long waits (such as for human input).
@@ -28,7 +28,7 @@ JavaActors is built around three core interfaces:
   * getMessageCount() allows the actor and others to get the number of pending messages.
   * getMaxMessageCount() allows the actor to limit how many pending messages are supported; this method can be used to prevent runaway sends.
 
-  Most programs have many actors, often of different types. Actors can be created at the start of a program or created (and destroyed) as a program executes. 
+  Most programs have many actors, often of different types. Actors can be created at the start of a program or created (and destroyed) as a program executes. The actor package in this article includes an abstract class called *AbstractActor*, on which actor implementations are based. 
 
 ---
 
