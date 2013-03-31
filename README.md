@@ -30,6 +30,8 @@ JavaActors is built around three core interfaces:
 
   Most programs have many actors, often of different types. Actors can be created at the start of a program or created (and destroyed) as a program executes. The actor package in this article includes an abstract class called *AbstractActor*, on which actor implementations are based. 
 
+[Read the full article...](http://www.ibm.com/developerworks/java/library/j-javaactors/) 
+
 ---
 
 > **Original Author:**
