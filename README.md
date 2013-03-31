@@ -1,5 +1,7 @@
 # j-javaactors-ibm
 
+###### `This repo is only for reference from sourcecode published in ibm-developerworks on 30/May/2012`
+
 A Java actor library for parallel execution. Modernize common concurrency patterns with JavaActors, a lightweight Java actor library.
 
 JavaActors is built around three core interfaces:
